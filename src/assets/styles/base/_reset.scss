@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,6 +27,7 @@ html {
   font-size: 16px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   hanging-punctuation: first last; /* Not supported in Chrome */
+  text-size-adjust: none; /* Prevent font size inflation */
 
   &:focus-within {
     scroll-behavior: smooth;
@@ -87,6 +93,7 @@ button,
 
 a {
   color: var(--anchor-color-text-primary, #000);
+  text-decoration-skip-ink: auto;
   &:hover,
   &:focus-visible {
     color: var(--anchor-color-text-primary-active, #000);
@@ -104,6 +111,12 @@ svg,
 video {
   display: block;
   max-width: 100%;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
 }
 
 @media (prefers-reduced-motion: no-preference) {
