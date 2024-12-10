@@ -1,4 +1,8 @@
 // CSS Resets start
+:root {
+  interpolate-size: allow-keywords;
+}
+
 *,
 *::after,
 *::before {
